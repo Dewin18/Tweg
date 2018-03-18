@@ -1,11 +1,20 @@
 package entity;
 
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 
 import main.GamePanel;
 
 public abstract class MovingObject {
-
+	
+	// collision box for each moving object
+	protected Rectangle collisionBox;
+	
+	// set the collision box to the same size of the moving object
+	public MovingObject(int xPos, int yPos, int width, int height) {
+		collisionBox = new Rectangle(xPos, yPos, width, height);
+	}
+	
 	public abstract void draw(Graphics2D g2);
 
 	// object position

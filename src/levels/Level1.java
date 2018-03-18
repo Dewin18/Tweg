@@ -11,7 +11,7 @@ import gameState.GameStateManager;
 
 public class Level1 extends GameState {
 
-	//velocity
+	// velocity
 	private double velX = 0;
 	private double velY = 0;
 
@@ -20,21 +20,23 @@ public class Level1 extends GameState {
 	public Level1(GameStateManager gsm) {
 
 		this.gsm = gsm;
-		player = new Player(100, 100, 40,  40);
+
+		player = new Player(100, 100, 40, 40);
+
 	}
 
 	@Override
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		player.draw(g2);
-		
-		if(player.isOnCamera())
-		{
+
+		if (player.isOnCamera()) {
 			System.out.println("object visible");
-		}
-		else System.out.println("OBJECT OUT OF MAP");
-		
-		//System.out.println("x: " + player.getXPos()+ " y: " + player.getYPos());
+		} else
+			System.out.println("OBJECT OUT OF MAP");
+
+		// System.out.println("x: " + player.getXPos()+ " y: " +
+		// player.getYPos());
 	}
 
 	@Override
@@ -47,7 +49,7 @@ public class Level1 extends GameState {
 		int yPos = player.getYPos();
 
 		player.setXPos(xPos += velX);
-		player.setYPos(yPos += velY);		
+		player.setYPos(yPos += velY);
 	}
 
 	@Override

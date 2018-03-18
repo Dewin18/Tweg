@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public class Player extends MovingObject {
 
-	public static final int STANDARD_VELOCITY = 7;
+	public static final int STANDARD_VELOCITY = 10;
 
 	// player position
 	private int xPos;
@@ -22,10 +22,18 @@ public class Player extends MovingObject {
 	// player image
 	private BufferedImage playerImg;
 
+	/**
+	 * Create a new player object
+	 * 
+	 * @param xPos
+	 * @param yPos
+	 * @param width
+	 * @param height
+	 */
 	public Player(int xPos, int yPos, int width, int height) {
+		super(xPos, yPos, width, height);
 		this.width = width;
 		this.height = height;
-
 		loadPlayerImage();
 	}
 
@@ -42,6 +50,8 @@ public class Player extends MovingObject {
 
 	public void draw(Graphics2D g) {
 		g.drawImage(playerImg, xPos, yPos, width, height, null);
+		collisionBox.setLocation(xPos, yPos);
+		g.draw(collisionBox);
 	}
 
 	// player positions
@@ -69,5 +79,4 @@ public class Player extends MovingObject {
 	public int getHeight() {
 		return height;
 	}
-
 }
