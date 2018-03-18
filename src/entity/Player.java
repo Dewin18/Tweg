@@ -7,19 +7,19 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Player {
+public class Player extends MovingObject {
 
-	public static final int STANDARD_VELOCITY = 10;
+	public static final int STANDARD_VELOCITY = 7;
 
-	//player position
+	// player position
 	private int xPos;
 	private int yPos;
 
-	//player size
+	// player size
 	private int width;
 	private int height;
-	
-	//player image
+
+	// player image
 	private BufferedImage playerImg;
 
 	public Player(int xPos, int yPos, int width, int height) {
@@ -60,4 +60,14 @@ public class Player {
 	public void setYPos(int yPos) {
 		this.yPos = yPos;
 	}
+
+	// player size
+	public int getWidth() {
+		return width;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
 }

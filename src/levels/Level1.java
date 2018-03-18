@@ -4,6 +4,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import entity.MovingObject;
 import entity.Player;
 import gameState.GameState;
 import gameState.GameStateManager;
@@ -14,7 +15,7 @@ public class Level1 extends GameState {
 	private double velX = 0;
 	private double velY = 0;
 
-	private Player player;
+	private MovingObject player;
 
 	public Level1(GameStateManager gsm) {
 
@@ -26,6 +27,12 @@ public class Level1 extends GameState {
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		player.draw(g2);
+		
+		if(player.isOnCamera())
+		{
+			System.out.println("object visible");
+		}
+		else System.out.println("OBJECT OUT OF MAP");
 		
 		//System.out.println("x: " + player.getXPos()+ " y: " + player.getYPos());
 	}
