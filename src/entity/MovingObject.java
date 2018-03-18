@@ -13,9 +13,9 @@ public abstract class MovingObject {
 
 	public abstract int getYPos();
 
-	public abstract void setXPos(int i);
+	public abstract void setXPos(int xPos);
 
-	public abstract void setYPos(int i);
+	public abstract void setYPos(int yPos);
 
 	// object size
 	public abstract int getWidth();
