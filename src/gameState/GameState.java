@@ -14,7 +14,4 @@ public abstract class GameState {
 	public abstract void handleKeyPressed(KeyEvent e);
 
 	public abstract void handleKeyReleased(KeyEvent e);
-
-	public abstract void handleKeTyped(KeyEvent e);
-
 }

@@ -32,9 +32,4 @@ public class GameStateManager {
 	public void handleKeyReleased(KeyEvent e) {
 		states.get(0).handleKeyReleased(e);
 	}
-
-	public void handleKeyTyped(KeyEvent e) {
-		states.get(0).handleKeTyped(e);
-	}
-
 }
