@@ -11,7 +11,7 @@ import entity.MovingObject;
 import entity.Player;
 import gameState.GameState;
 import gameState.GameStateManager;
-import handler.keyHandler;
+import handler.KeyHandler;
 
 public class Level1 extends GameState {
 
@@ -40,15 +40,15 @@ public class Level1 extends GameState {
 		int xPos = player.getXPos();
 		int yPos = player.getYPos();
 
-		player.setXPos(xPos += keyHandler.getVelX());
-		player.setYPos(yPos += keyHandler.getVelY());
+		player.setXPos(xPos += KeyHandler.getVelX());
+		player.setYPos(yPos += KeyHandler.getVelY());
 	}
 
 	public void handleKeyPressed(KeyEvent e) {
-		keyHandler.handleKeyPressed(e);
+		KeyHandler.handleKeyPressed(e);
 	}
 
 	public void handleKeyReleased(KeyEvent e) {
-		keyHandler.handleKeyReleased(e);
+		KeyHandler.handleKeyReleased(e);
 	}
 }

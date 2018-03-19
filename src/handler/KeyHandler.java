@@ -6,11 +6,14 @@ import java.util.Set;
 
 import entity.Player;
 
-public class keyHandler {
+public class KeyHandler {
 
 	private static Set<Integer> pressedKeys;
 	private static double velocityX;
 	private static double velocityY;
+	
+	private KeyHandler() {
+	}
 
 	static {
 		pressedKeys = new HashSet<>();
