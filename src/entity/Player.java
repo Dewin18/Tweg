@@ -11,14 +11,6 @@ public class Player extends MovingObject {
 
 	public static final int STANDARD_VELOCITY = 10;
 
-	// player position
-	private int xPos;
-	private int yPos;
-
-	// player size
-	private int width;
-	private int height;
-
 	// player image
 	private BufferedImage playerImg;
 
@@ -34,10 +26,9 @@ public class Player extends MovingObject {
 		super(xPos, yPos, width, height);
 		this.width = width;
 		this.height = height;
-		loadPlayerImage();
 	}
 
-	private void loadPlayerImage() {
+	public void loadObjectImage() {
 		playerImg = null;
 		try {
 			System.out.println("IMAGE LOADED");
@@ -54,29 +45,5 @@ public class Player extends MovingObject {
 		g.draw(collisionBox);
 	}
 
-	// player positions
-	public int getXPos() {
-		return xPos;
-	}
-
-	public int getYPos() {
-		return yPos;
-	}
-
-	public void setXPos(int xPos) {
-		this.xPos = xPos;
-	}
-
-	public void setYPos(int yPos) {
-		this.yPos = yPos;
-	}
-
-	// player size
-	public int getWidth() {
-		return width;
-	}
-
-	public int getHeight() {
-		return height;
-	}
+	
 }

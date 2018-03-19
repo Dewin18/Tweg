@@ -3,6 +3,9 @@ package levels;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 import entity.MovingObject;
 import entity.Player;
@@ -10,6 +13,8 @@ import gameState.GameState;
 import gameState.GameStateManager;
 
 public class Level1 extends GameState {
+
+	private Set<Integer> pressedKeys;
 
 	// velocity
 	private double velX = 0;
@@ -19,29 +24,29 @@ public class Level1 extends GameState {
 
 	public Level1(GameStateManager gsm) {
 
+		pressedKeys = new HashSet<>();
 		this.gsm = gsm;
 
 		player = new Player(100, 100, 40, 40);
 
 	}
 
-	@Override
 	public void draw(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		player.draw(g2);
 
-		if (player.isOnCamera()) {
-			System.out.println("object visible");
-		} else
-			System.out.println("OBJECT OUT OF MAP");
+		// if (player.isOnCamera()) {
+		// System.out.println("object visible");
+		// } else
+		// System.out.println("OBJECT OUT OF MAP");
 
 		// System.out.println("x: " + player.getXPos()+ " y: " +
 		// player.getYPos());
 	}
 
-	@Override
 	public void update() {
 		updatePlayerMovements();
+		System.out.println(pressedKeys.toString());
 	}
 
 	private void updatePlayerMovements() {
@@ -52,9 +57,10 @@ public class Level1 extends GameState {
 		player.setYPos(yPos += velY);
 	}
 
-	@Override
 	public void handleKeyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
+
+		pressedKeys.add(key);
 
 		if (key == KeyEvent.VK_RIGHT) {
 			velX = Player.STANDARD_VELOCITY;
@@ -73,24 +79,21 @@ public class Level1 extends GameState {
 		}
 	}
 
-	@Override
 	public void handleKeyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
-		if (key == KeyEvent.VK_RIGHT) {
-			velX = 0;
-		}
+		pressedKeys.remove(key);
 
-		if (key == KeyEvent.VK_UP) {
+		if (!pressedKeys.contains(KeyEvent.VK_UP) && !pressedKeys.contains(KeyEvent.VK_DOWN)) {
 			velY = 0;
 		}
 
-		if (key == KeyEvent.VK_LEFT) {
+		if (!pressedKeys.contains(KeyEvent.VK_LEFT) && !pressedKeys.contains(KeyEvent.VK_RIGHT)) {
 			velX = 0;
 		}
+	}
 
-		if (key == KeyEvent.VK_DOWN) {
-			velY = 0;
-		}
+	public void handleKeTyped(KeyEvent e) {
+		// NOT IMPLEMENTED YET
 	}
 }
