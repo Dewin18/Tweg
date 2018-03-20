@@ -1,6 +1,6 @@
 package gameState;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
@@ -15,7 +15,7 @@ public class GameStateManager {
 	}
 
 	// graphics update
-	public void draw(Graphics g) {
+	public void draw(Graphics2D g) {
 		states.get(0).draw(g);
 	}
 

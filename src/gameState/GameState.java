@@ -1,13 +1,13 @@
 package gameState;
 
-import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 public abstract class GameState {
 
 	protected GameStateManager gsm;
 
-	public abstract void draw(Graphics g);
+	public abstract void draw(Graphics2D g);
 
 	public abstract void update();
 

@@ -8,10 +8,11 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Wall extends InteractiveObject {
-private BufferedImage wallImg;
+public class Ceiling extends InteractiveObject {
+
+	private BufferedImage ceilingImg;
 	
-	public Wall(int xPos, int yPos, int width, int height) {
+	public Ceiling(int xPos, int yPos, int width, int height) {
 		super(xPos, yPos, width, height);
 
 		this.xPos = xPos;
@@ -21,10 +22,10 @@ private BufferedImage wallImg;
 	}
 
 	public void loadObjectImage() {
-		wallImg = null;
+		ceilingImg = null;
 		try {
 			System.out.println("IMAGE LOADED");
-			wallImg = ImageIO.read(new File("src/resources/wall.PNG"));
+			ceilingImg = ImageIO.read(new File("src/resources/ceiling.PNG"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -33,10 +34,11 @@ private BufferedImage wallImg;
 	}
 
 	public void draw(Graphics2D g) {
-		g.drawImage(wallImg, xPos, yPos, width, height, null);
+		g.drawImage(ceilingImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
 		
 		g.setColor(new Color(0, 0, 0, 0F));
 		g.draw(collisionBox);
 	}
+
 }

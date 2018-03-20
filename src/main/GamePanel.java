@@ -1,7 +1,9 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -26,6 +28,7 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 		super();
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 		setFocusable(true);
+		setBackground(Color.WHITE);
 		gsm = new GameStateManager();
 		start();
 
@@ -82,7 +85,8 @@ public class GamePanel extends JPanel implements Runnable, KeyListener {
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
-		gsm.draw(g);
+		Graphics2D g2 = (Graphics2D) g;
+		gsm.draw(g2);
 	}
 
 }

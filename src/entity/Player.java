@@ -1,5 +1,6 @@
 package entity;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -7,7 +8,7 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-public class Player extends MovingObject {
+public class Player extends InteractiveObject {
 
 	public static final int STANDARD_VELOCITY = 10;
 
@@ -24,6 +25,9 @@ public class Player extends MovingObject {
 	 */
 	public Player(int xPos, int yPos, int width, int height) {
 		super(xPos, yPos, width, height);
+		
+		this.xPos = xPos;
+		this.yPos = yPos;
 		this.width = width;
 		this.height = height;
 	}
@@ -42,6 +46,7 @@ public class Player extends MovingObject {
 	public void draw(Graphics2D g) {
 		g.drawImage(playerImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
+		g.setColor(Color.BLUE);
 		g.draw(collisionBox);
 	}
 

@@ -4,14 +4,12 @@ import java.awt.event.KeyEvent;
 import java.util.HashSet;
 import java.util.Set;
 
-import entity.Player;
-
 public class KeyHandler {
 
 	private static Set<Integer> pressedKeys;
 	private static double velocityX;
 	private static double velocityY;
-	
+
 	private KeyHandler() {
 	}
 
@@ -29,25 +27,25 @@ public class KeyHandler {
 		return velocityY;
 	}
 
-	public static void handleKeyPressed(KeyEvent e) {
+	public static void handleKeyPressed(KeyEvent e, int movingVelocity) {
 		int key = e.getKeyCode();
 
 		pressedKeys.add(key);
 
 		if (key == KeyEvent.VK_RIGHT) {
-			velocityX = Player.STANDARD_VELOCITY;
+			velocityX = movingVelocity;
 		}
 
 		if (key == KeyEvent.VK_UP) {
-			velocityY = -Player.STANDARD_VELOCITY;
+			velocityY = -movingVelocity;
 		}
 
 		if (key == KeyEvent.VK_LEFT) {
-			velocityX = -Player.STANDARD_VELOCITY;
+			velocityX = -movingVelocity;
 		}
 
 		if (key == KeyEvent.VK_DOWN) {
-			velocityY = Player.STANDARD_VELOCITY;
+			velocityY = movingVelocity;
 		}
 	}
 
