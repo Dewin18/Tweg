@@ -48,18 +48,45 @@ public class KeyHandler {
 			velocityY = movingVelocity;
 		}
 	}
-
+	
 	public static void handleKeyReleased(KeyEvent e) {
 		int key = e.getKeyCode();
 
 		pressedKeys.remove(key);
 
 		if (!pressedKeys.contains(KeyEvent.VK_UP) && !pressedKeys.contains(KeyEvent.VK_DOWN)) {
-			velocityY = 0;
+			velocityY = -1;
 		}
 
 		if (!pressedKeys.contains(KeyEvent.VK_LEFT) && !pressedKeys.contains(KeyEvent.VK_RIGHT)) {
 			velocityX = 0;
 		}
+	}
+	
+	public static void handleKeyPressedLeftWall(KeyEvent e, int movingVelocity) {
+		int key = e.getKeyCode();
+
+		pressedKeys.add(key);
+
+		if (key == KeyEvent.VK_UP) {
+			velocityY = -movingVelocity;
+		}
+
+		if (key == KeyEvent.VK_DOWN) {
+			velocityX = -movingVelocity;
+		}
+
+		if (key == KeyEvent.VK_RIGHT) {
+			velocityX = movingVelocity;
+		}
+	}
+	
+	public static void printCurrentKeysOnConsole()
+	{
+		System.out.println(pressedKeys.toString());
+	}
+	
+	public static void removeLeft() {
+		pressedKeys.remove(KeyEvent.VK_LEFT);
 	}
 }

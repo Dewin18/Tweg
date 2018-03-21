@@ -25,7 +25,6 @@ public abstract class InteractiveObject {
 	}
 
 	public abstract void loadObjectImage();
-
 	
 	
 	public abstract void draw(Graphics2D g2);
