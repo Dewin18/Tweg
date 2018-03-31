@@ -8,7 +8,7 @@ import levels.Level1;
 
 public class GameStateManager {
 
-	ArrayList<GameState> states = new ArrayList<>();
+	private ArrayList<GameState> states = new ArrayList<>();
 
 	public GameStateManager() {
 		states.add(new Level1(this));

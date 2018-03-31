@@ -43,8 +43,8 @@ public class Level1 extends GameState {
 
 	public void draw(Graphics2D g) {
 		BackgroundHandler.drawBackgrounds(g);
-		player.draw(g);
 		drawWalls(g);
+		player.draw(g);
 	}
 
 	private void drawWalls(Graphics2D g) {
@@ -57,13 +57,22 @@ public class Level1 extends GameState {
 		if (player.colide(ceiling)) {
 			System.out.println("PLAYER DEAD");
 		} else {
+
+			
+//TODO
+//			if ((player.getXPos() - 1) < (leftWall.getXPos() + leftWall.getWidth())) {
+//
+//				player.setXPos(leftWall.getXPos() + leftWall.getWidth());
+//			}
+
 			updateBackground();
 			updatePlayerMovements();
 		}
+
 	}
 
 	private void updateBackground() {
-		BackgroundHandler.updateBackgrounds();		
+		BackgroundHandler.updateBackgrounds();
 	}
 
 	private void updatePlayerMovements() {

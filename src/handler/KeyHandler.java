@@ -73,7 +73,7 @@ public class KeyHandler {
 		}
 
 		if (key == KeyEvent.VK_DOWN) {
-			velocityX = -movingVelocity;
+			velocityY = movingVelocity;
 		}
 
 		if (key == KeyEvent.VK_RIGHT) {
