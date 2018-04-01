@@ -24,7 +24,7 @@ private BufferedImage wallImg;
 		wallImg = null;
 		try {
 			System.out.println("IMAGE LOADED");
-			wallImg = ImageIO.read(new File("src/resources/wall.PNG"));
+			wallImg = ImageIO.read(new File("src/resources/wall2.PNG"));
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -35,6 +35,8 @@ private BufferedImage wallImg;
 	public void draw(Graphics2D g) {
 		g.drawImage(wallImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
+		
+	
 		
 		g.setColor(new Color(0, 0, 0, 0F));
 		g.draw(collisionBox);
