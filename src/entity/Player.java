@@ -8,6 +8,8 @@ import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
+import main.GamePanel;
+
 public class Player extends InteractiveObject {
 
 	public static final int STANDARD_VELOCITY = 10;
@@ -46,8 +48,20 @@ public class Player extends InteractiveObject {
 	public void draw(Graphics2D g) {
 		g.drawImage(playerImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
+		
+		topBox.setLocation(xPos, yPos - GamePanel.WIDTH);
+		downBox.setLocation(xPos, yPos + height);
+		leftBox.setLocation(xPos - GamePanel.WIDTH, yPos);
+		rightBox.setLocation(xPos + width, yPos);
+		
+		
 		g.setColor(Color.BLUE);
 		g.draw(collisionBox);
+		
+		g.draw(topBox);
+		g.draw(downBox);
+		g.draw(leftBox);
+		g.draw(rightBox);
 	}
 
 	

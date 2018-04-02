@@ -35,10 +35,8 @@ private BufferedImage wallImg;
 	public void draw(Graphics2D g) {
 		g.drawImage(wallImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
-		
-	
-		
-		g.setColor(new Color(0, 0, 0, 0F));
+		g.setColor(Color.CYAN);
+		//g.setColor(new Color(0, 0, 0, 1F));
 		g.draw(collisionBox);
 	}
 }
