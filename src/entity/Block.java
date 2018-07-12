@@ -37,8 +37,8 @@ public class Block extends InteractiveObject {
 		g.drawImage(blockImg, xPos, yPos, width, height, null);
 		collisionBox.setLocation(xPos, yPos);
 		
-		g.setColor(Color.CYAN);
-		g.draw(collisionBox);
+//		g.setColor(Color.CYAN);
+//		g.draw(collisionBox);
 	}
 
 }

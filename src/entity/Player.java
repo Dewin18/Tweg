@@ -55,13 +55,13 @@ public class Player extends InteractiveObject {
 		rightBox.setLocation(xPos + width, yPos);
 		
 		
-		g.setColor(Color.BLUE);
+//		g.setColor(Color.BLUE);
 		g.draw(collisionBox);
 		
-		g.draw(topBox);
-		g.draw(downBox);
-		g.draw(leftBox);
-		g.draw(rightBox);
+//		g.draw(topBox);
+//		g.draw(downBox);
+//		g.draw(leftBox);
+//		g.draw(rightBox);
 	}
 
 	

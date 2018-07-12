@@ -77,6 +77,26 @@ public abstract class InteractiveObject {
 	return this.collisionBox.intersects(otherObject.collisionBox);
     }
 
+    // NEW
+    public boolean colideBottom(InteractiveObject otherObject) {
+	return this.downBox.intersects(otherObject.collisionBox);
+    }
+
+    // NEW
+    public boolean colideTop(InteractiveObject otherObject) {
+	return this.topBox.intersects(otherObject.collisionBox);
+    }
+
+    // NEW
+    public boolean colideLeft(InteractiveObject otherObject) {
+	return this.leftBox.intersects(otherObject.collisionBox);
+    }
+
+    // NEW
+    public boolean colideRight(InteractiveObject otherObject) {
+	return this.rightBox.intersects(otherObject.collisionBox);
+    }
+
     public boolean rightOf(InteractiveObject otherObject) {
 	return (this.getXPos() - 1) < (otherObject.getXPos() + otherObject.getWidth());
     }
@@ -111,15 +131,19 @@ public abstract class InteractiveObject {
 	return this.bottomOf(otherObject) && this.topBox.intersects(otherObject.collisionBox);
     }
 
-    public boolean positiveDistance(InteractiveObject otherObject) {
-	return (otherObject.getYPos() - (this.getYPos() + this.getHeight())) > 10;
+    public boolean positive_Y_Distance(InteractiveObject otherObject) {
+	return ((this.getYPos() + this.getHeight() + 1) < otherObject.getYPos());
     }
 
-    public boolean negtiveDistance(InteractiveObject otherObject) {
-	return (otherObject.getYPos() - (this.getYPos() + this.getHeight())) < 1;
+    public boolean negative_Y_Distance(InteractiveObject otherObject) {
+	return (this.getYPos() > (otherObject.getYPos() + otherObject.height));
     }
 
-    public boolean nearestDistance(InteractiveObject otherObject) {
-	return (otherObject.getYPos() - (this.getYPos() + this.getHeight())) < 2;
+    public boolean positive_X_Distance(InteractiveObject otherObject) {
+	return (this.getXPos() > (otherObject.getXPos() + otherObject.getWidth()));
+    }
+
+    public boolean negative_X_Distance(InteractiveObject otherObject) {
+	return ((this.getXPos() + this.getHeight()) < otherObject.getXPos());
     }
 }
